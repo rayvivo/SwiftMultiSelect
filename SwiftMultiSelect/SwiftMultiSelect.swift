@@ -271,7 +271,7 @@ public struct SwiftMultiSelectItem{
         
         let formatter = PersonNameComponentsFormatter()
         
-        guard let personNameComponents = formatter.personNameComponents(from: tit) else {
+        guard let personNameComponents = formatter.personNameComponents(from: tit as String) else {
             return ""
         }
         
