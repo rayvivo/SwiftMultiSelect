@@ -43,6 +43,7 @@ class MultiSelecetionViewController: UIViewController,UIGestureRecognizerDelegat
         layout.scrollDirection          = UICollectionViewScrollDirection.horizontal
         layout.minimumInteritemSpacing  = 0
         layout.minimumLineSpacing       = 0
+        layout.itemSize                 = CGSize(width: CGFloat(Config.selectorStyle.selectionHeight),height: CGFloat(Config.selectorStyle.selectionHeight))
         
         //Build collectin view
         let selected                    = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
@@ -97,8 +98,17 @@ class MultiSelecetionViewController: UIViewController,UIGestureRecognizerDelegat
     /// Calculate the nav bar height if present
     var navBarHeight:CGFloat{
         get{
+            var statusBarHeight:CGFloat
+            
+            if UIDevice().userInterfaceIdiom == .phone && UIScreen.main.nativeBounds.height == 2436 {
+                //iPhone X
+                statusBarHeight = 44
+            }else{
+                statusBarHeight = 20
+            }
+            
             if (self.navigationController != nil) {
-                return self.navigationController!.navigationBar.frame.size.height + (UIApplication.shared.isStatusBarHidden ? 0 : 20)
+                return self.navigationController!.navigationBar.frame.size.height + (UIApplication.shared.isStatusBarHidden ? 0 : statusBarHeight)
             }else{
                 return 0
             }
@@ -155,7 +165,7 @@ class MultiSelecetionViewController: UIViewController,UIGestureRecognizerDelegat
         )
         //constraint for stackview
         let stackView_V = NSLayoutConstraint.constraints(
-            withVisualFormat: "V:|-\(navBarHeight)-[stackView]-0-|",
+           withVisualFormat: "V:|-[stackView]-0-|",
             options: NSLayoutFormatOptions(rawValue:0),
             metrics: nil,
             views: viewsDictionary
