@@ -52,7 +52,8 @@ extension MultiSelecetionViewController:UITableViewDelegate,UITableViewDataSourc
             item = (searchString == "") ?  SwiftMultiSelect.items![indexPath.row] : SwiftMultiSelect.items!.filter({$0.title.lowercased().contains(searchString.lowercased()) || ($0.description != nil && $0.description!.lowercased().contains(searchString.lowercased())) })[indexPath.row]
         }else{
             //Try to get item from delegate
-            item = SwiftMultiSelect.dataSource?.swiftMultiSelect(itemAtRow: indexPath.row)
+           // item = SwiftMultiSelect.dataSource?.swiftMultiSelect(itemAtRow: indexPath.row)
+              item = (searchString == "") ?  SwiftMultiSelect.items![indexPath.row] : SwiftMultiSelect.items!.filter({$0.title.lowercased().contains(searchString.lowercased()) || ($0.description != nil && $0.description!.lowercased().contains(searchString.lowercased())) })[indexPath.row]
         }
 
         //Configure cell properties
