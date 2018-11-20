@@ -262,14 +262,17 @@ public struct SwiftMultiSelectItem{
     /// - Returns: String 2 intials
     func getInitials() -> String {
         
-        var initials = String()
+       /* var initials = String()
         if title != "" && tit.length >= 2
         {
             initials.append(tit.substring(to: 2))
-        }
+        }*/
+    
+    let initials = title.components(separatedBy: " ").reduce("") { ($0 == "" ? "" : "\($0.first!)") + "\($1.first!)" }
         
       return initials.uppercased()
         
+ 
        
     }
     
