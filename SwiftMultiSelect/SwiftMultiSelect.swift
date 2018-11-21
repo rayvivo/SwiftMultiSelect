@@ -270,19 +270,19 @@ public struct SwiftMultiSelectItem{
                 let initials = comps.reduce("") { ($0 == "" ? "" : "\($0.first!)") + "\($1.first!)" }
                 return initials.uppercased()
                 
-            } else {
-                
-                let tit = "Test" as NSString
-                var initials = String()
-                if tit != "" && tit.length >= 2
-                {
-                    initials.append(tit.substring(to: 2))
-                }
-                
-                return initials.uppercased()
             }
             
             
+        } else {
+            
+            let tit = "Test" as NSString
+            var initials = String()
+            if tit != "" && tit.length >= 2
+            {
+                initials.append(tit.substring(to: 2))
+            }
+            
+            return initials.uppercased()
         }
     }
     
