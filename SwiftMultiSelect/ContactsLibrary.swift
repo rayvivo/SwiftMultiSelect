@@ -62,7 +62,7 @@ public class ContactsLibrary{
                 var contactsArray = [SwiftMultiSelectItem]()
                 
                 let contactFetchRequest = CNContactFetchRequest(keysToFetch: self.allowedContactKeys())
-                
+                   contactFetchRequest.sortOrder = CNContactSortOrder.userDefault
                 do {
                     var row = 0
                     try self.contactStore.enumerateContacts(with: contactFetchRequest, usingBlock: { (contact, stop) -> Void in
