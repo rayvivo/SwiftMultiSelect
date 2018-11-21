@@ -265,9 +265,9 @@ public struct SwiftMultiSelectItem{
         let tit = (title as NSString)
         let comps = tit.components(separatedBy: " ")
         
-        if (comps.count > 1) {
+        if (comps.count > 1 && comps[1] != "") {
             
-            let initials = comps.reduce("") { ($0 == "" ? "" : "\($0.first!)") + "\($1.first!)" }
+            let initials = String(comps[0].first!) + String(comps[1].first!)
             return initials.uppercased()
             
         } else {
