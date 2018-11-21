@@ -262,7 +262,7 @@ public struct SwiftMultiSelectItem{
     /// - Returns: String 2 intials
     func getInitials() -> String {
         
-        let tit = "Test" as NSString
+        let tit = (title as NSString)
         let comps = tit.components(separatedBy: " ")
         
         if (comps.count > 1) {
@@ -272,7 +272,7 @@ public struct SwiftMultiSelectItem{
             
         } else {
             
-            let tit = "Test" as NSString
+            let tit = (title as NSString)
             var initials = String()
             if tit != "" && tit.length >= 2
             {
