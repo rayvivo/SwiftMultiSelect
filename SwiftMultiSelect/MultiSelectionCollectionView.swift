@@ -167,7 +167,7 @@ extension MultiSelecetionViewController:UICollectionViewDelegate,UICollectionVie
         //Add
         }else{
             
-            toggleSelectionScrollView(show: true)
+            toggleSelectionScrollView(show: false)
             
             //Reload data
             self.selectionScrollView.insertItems(at: [IndexPath(item: selectedItems.count-1, section: 0)])
